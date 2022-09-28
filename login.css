@@ -1,0 +1,31 @@
+body {
+    background-image: url('background.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+.container {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 5px;
+}
+
+.button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
+  .text {
+    font-size:18pt;
+    height:42px;
+  }

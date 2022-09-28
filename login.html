@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logg inn</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="container">
+    <img src="Logo.png">
+    <form id="login" method="get" action="login.php"></form>
+        <input type="text" class="text" id="BNavn" placeholder="Brukernavn"></input>
+        <br><br>
+        <input type="Password" class="text" id="Pass" placeholder="Passord"></input>
+        <br><br>
+        <input type="button" class="button" value="Logg inn her" onclick="side2()"></input>       
+        <br><br>  
+    </div>
+</body> 
+<script>
+var brukerNavn = document.getElementById("BNavn").value
+
+function side2() {
+    document.cookie = brukerNavn = document.getElementById("BNavn").value
+    window.location.assign('side2.html');
+}
+</script>
+</html> 

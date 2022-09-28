@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.plot.ly/plotly-2.14.0.min.js"></script>
+</head>
+<body>
+    <p id="Navn"></p>
+
+    <p>Power Price</p>
+    <p class="PowerPrice" id="PowerPrice1"></p>
+    <p class="PowerPrice" id="PowerPrice2"></p>
+    <p class="PowerPrice" id="PowerPrice3"></p>
+    <p class="PowerPrice" id="PowerPrice4"></p>
+    <p class="PowerPrice" id="PowerPrice5"></p>
+
+    <p>Water Influx</p>
+    <p class="WaterInflux" id="WaterInflux1"></p>
+    <p class="WaterInflux" id="WaterInflux2"></p>
+    <p class="WaterInflux" id="WaterInflux3"></p>
+    <p class="WaterInflux" id="WaterInflux4"></p>
+    <p class="WaterInflux" id="WaterInflux5"></p>
+
+    <div id="strompris"></div>
+    <div id="vanntilstrumning"></div>
+</body>
+<script>
+//Henter navn fra login side
+let x = document.cookie
+document.getElementById("Navn").innerHTML = x
+
+//Henter strøm pris
+    request = fetch("https://innafjord.azurewebsites.net/api/PowerPrice/all")
+
+    var json = request.then(løfte => løfte.json())
+
+    json.then(løfte => document.getElementById("PowerPrice1").innerHTML = løfte[0])
+    json.then(løfte => document.getElementById("PowerPrice2").innerHTML = løfte[1])
+    json.then(løfte => document.getElementById("PowerPrice3").innerHTML = løfte[2])
+    json.then(løfte => document.getElementById("PowerPrice4").innerHTML = løfte[3])
+    json.then(løfte => document.getElementById("PowerPrice5").innerHTML = løfte[4])
+
+//Henter vann influx
+    request = fetch("https://innafjord.azurewebsites.net/api/WaterInflux/all")
+
+    var json = request.then(løfte => løfte.json())
+
+    json.then(løfte => document.getElementById("WaterInflux1").innerHTML = løfte[0])
+    json.then(løfte => document.getElementById("WaterInflux2").innerHTML = løfte[1])
+    json.then(løfte => document.getElementById("WaterInflux3").innerHTML = løfte[2])
+    json.then(løfte => document.getElementById("WaterInflux4").innerHTML = løfte[3])
+    json.then(løfte => document.getElementById("WaterInflux5").innerHTML = løfte[4])
+
+    //Graf til strøm pris
+    async function hentStrompriser() {
+            var request = await fetch("https://innafjord.azurewebsites.net/api/PowerPrice/all")
+            var answer = await request.json()
+            return answer
+        }
+
+        async function plotStrompriser() {
+            var yVerdier = await hentStrompriser()
+            xVerdier = []
+            for (i in yVerdier) { 
+                xVerdier.push(i)
+            }
+
+            data = [{
+                x: xVerdier,
+                y: yVerdier,
+                mode: "lines"
+                }]
+
+            oppsett = {
+                xaxis: {range: [Math.min(xVerdier)-1, Math.max(xVerdier)+1], title: "Tid/indekser"},
+                yaxis: {range: [Math.min(yVerdier)-1,Math.max(yVerdier)+1], title: "Strømpris/NOK"},
+                title: "Strømpriser",
+            }
+
+            Plotly.newPlot("strompris", data, oppsett) 
+        }
+
+        setInterval(plotStrompriser, 1000)
+
+        //Graf til vann tilstrømming
+        async function hentVanntilstrumning() {
+            var request = await fetch("https://innafjord.azurewebsites.net/api/WaterInflux/all")
+            var answer = await request.json()
+            return answer
+        }
+
+        async function plotVanntilstrumning() {
+            var yVerdier = await hentVanntilstrumning()
+            xVerdier = []
+            for (i in yVerdier) { 
+                xVerdier.push(i)
+            }
+
+            data = [{
+                x: xVerdier,
+                y: yVerdier,
+                mode: "lines"
+                }]
+
+            oppsett = {
+                xaxis: {range: [Math.min(xVerdier)-1, Math.max(xVerdier)+1], title: "Tid/indekser"},
+                yaxis: {range: [Math.min(yVerdier)-1,Math.max(yVerdier)+1], title: "WaterInflux/NOK"},
+                title: "Vann Tilstrømning",
+            }
+
+            Plotly.newPlot("vanntilstrumning", data, oppsett) 
+        }
+
+        setInterval(plotVanntilstrumning, 1000)
+</script>
+</html>
