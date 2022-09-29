@@ -1,0 +1,88 @@
+* {box-sizing: border-box;}
+
+       .header {
+        overflow: hidden;
+        background-color: rgb(134, 211, 134);
+        padding: 20px 10px;
+
+    }
+        .header a {
+        float: left;
+        color: white;
+        text-align: center;
+        padding: 12px;
+        text-decoration: none;
+        font-size: 18px; 
+        line-height: 25px;
+        border-radius: 4px;
+      }
+
+        .header a.logo {
+        font-size: 35px;
+        font-weight: bold;
+      
+    }
+      
+      .header a:hover {
+        background-color: rgb(160, 228, 160);
+        color: white;
+      
+    }
+      
+      .header a.active {
+        background-color: rgb(106, 239, 131);
+        color: white;
+      
+    }
+      
+      .header-right {
+        float: right;
+      
+    }
+      
+      @media screen and (max-width: 500px) {
+        .header a {
+        float: none;
+        display: block;
+        text-align: left;
+        
+    }
+        
+        .header-right {
+        float: none;
+    }
+
+}
+
+       
+        .space1 { grid-area: space1; height: 100px; }
+        .minfo { grid-area: minfo; height: 100px; }
+        .API1 { grid-area: API1; height: 100px; }
+        .API2 { grid-area: API2; height: 100px; }
+        .API3 { grid-area: API3; height: 100px; }
+        .info1 { grid-area: info1; height: 430px; }
+        .turbiner { grid-area: turbiner; height: 400px; }
+
+        .grid-container {
+        display: grid;
+        grid-template-areas:
+            'space1 space1 space1 space1 space1 space1 space1 '
+            'API1 API1 API2 API2 API2 API3 API3'
+            'info1 info1 info1 info1 info1 info1 info1 '
+            'minfo minfo minfo minfo minfo minfo minfo '
+            'turbiner turbiner turbiner turbiner turbiner turbiner turbiner ';
+        gap: 2px;
+        background-color:blue;
+        padding: 2px;
+    
+    }
+
+        .grid-container > div {
+        background-color: white;
+        text-align: center;
+        padding: 20px 0;
+        font-size: 30px;
+    }
+
+
+    

@@ -1,0 +1,106 @@
+* {box-sizing: border-box;}
+
+       .header {
+        overflow: hidden;
+        background-color: rgb(134, 211, 134);
+        padding: 20px 10px;
+
+    }
+        .header a {
+        float: left;
+        color: white;
+        text-align: center;
+        padding: 12px;
+        text-decoration: none;
+        font-size: 18px; 
+        line-height: 25px;
+        border-radius: 4px;
+      }
+
+        .header a.logo {
+        font-size: 35px;
+        font-weight: bold;
+      
+    }
+      
+      .header a:hover {
+        background-color: rgb(160, 228, 160);
+        color: white;
+      
+    }
+      
+      .header a.active {
+        background-color: rgb(106, 239, 131);
+        color: white;
+      
+    }
+      
+      .header-right {
+        float: right;
+      
+    }
+      
+      @media screen and (max-width: 500px) {
+        .header a {
+        float: none;
+        display: block;
+        text-align: left;
+        
+    }
+        
+        .header-right {
+        float: none;
+    }
+
+}
+        
+.main4 { grid-area: main4; height: 100px; background-color: transparent; }
+.main { grid-area: main; height: 200px; background-color: transparent; }
+.logo2 { grid-area: logo2; height: 300px; background-color: transparent; }
+.main2 { grid-area: main2; width: 55px; height: 200px; background-color: transparent; }
+
+.grid-container {
+display: grid;
+grid-template-areas:
+    'main4 main4 main4 main4 main4 main4 main4'
+    'main main main main logo2 logo2 main2';
+gap: 2px;
+padding: 2px;
+
+}
+
+.grid-container > div {
+text-align: center;
+padding: 20px 0;
+font-size: 30px;
+
+}
+
+.btn-group .button {
+  background-color: #7aa7ce;
+  border: 20px solid ;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  width: 150px;
+  display: block;
+  margin: auto;
+  width: 700px
+}
+
+.btn-group .button:not(:last-child) {
+  border-bottom: none; 
+}
+
+.button {
+  border-radius: 50px;
+}
+
+.btn-group .button:hover {
+  background-color: #6295c2;
+}
+
+
