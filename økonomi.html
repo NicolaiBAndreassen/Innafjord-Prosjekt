@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="økonomi.css">
+    <title>Økonomi</title>
+</head>
+<body>
+    <h1 class="logo">Økonomi</h1>
+    <div class="Strøm">
+        <p>Power Price</p>
+        <p id="PowerPrice1"></p>
+        <p id="PowerPrice2"></p>
+        <p id="PowerPrice3"></p>
+        <p id="PowerPrice4"></p>
+        <p id="PowerPrice5"></p>
+    </div>
+
+    <div class="Vann">
+        <p>Water Influx</p>
+        <p id="WaterInflux1"></p>
+        <p id="WaterInflux2"></p>
+        <p d="WaterInflux3"></p>
+        <p id="WaterInflux4"></p>
+        <p id="WaterInflux5"></p>
+    </div>
+
+    <script>
+//Henter strøm pris
+    request = fetch("https://innafjord.azurewebsites.net/api/PowerPrice/all")
+
+    var json = request.then(løfte => løfte.json())
+
+    json.then(løfte => document.getElementById("PowerPrice1").innerHTML = løfte[0])
+    json.then(løfte => document.getElementById("PowerPrice2").innerHTML = løfte[1])
+    json.then(løfte => document.getElementById("PowerPrice3").innerHTML = løfte[2])
+    json.then(løfte => document.getElementById("PowerPrice4").innerHTML = løfte[3])
+    json.then(løfte => document.getElementById("PowerPrice5").innerHTML = løfte[4])
+
+//Henter vann influx
+    request = fetch("https://innafjord.azurewebsites.net/api/WaterInflux/all")
+
+    var json = request.then(løfte => løfte.json())
+
+    json.then(løfte => document.getElementById("WaterInflux1").innerHTML = løfte[0])
+    json.then(løfte => document.getElementById("WaterInflux2").innerHTML = løfte[1])
+    json.then(løfte => document.getElementById("WaterInflux3").innerHTML = løfte[2])
+    json.then(løfte => document.getElementById("WaterInflux4").innerHTML = løfte[3])
+    json.then(løfte => document.getElementById("WaterInflux5").innerHTML = løfte[4])
+    </script>
+</body>
+</html>
