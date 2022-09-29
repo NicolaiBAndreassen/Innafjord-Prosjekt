@@ -1,0 +1,100 @@
+body {
+    background-image: url('BakgrunnTurbiner.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto;
+    grid-template-rows: 200px auto auto 200px;
+    grid-template-areas: 
+      ". . . . . . ."
+      "turbin1 turbin2 turbin3 turbin4 turbin5 turbin6 turbin7"
+      "turbin8 turbin9 turbin10 turbin11 turbin12 turbin13 turbin14"
+      ". . . . . . .";
+  }
+
+  .turbin1 {
+      grid-area: turbin1;
+      width: 150px;
+      height: 150px;
+  }
+
+  .turbin2 {
+    grid-area: turbin2;
+    width: 150px;
+    height: 150px;
+}
+
+.turbin3 {
+    grid-area: turbin3;
+    width: 150px;
+    height: 150px;
+}
+
+.turbin4 {
+    grid-area: turbin4;
+    width: 150px;
+    height: 150px;
+}
+
+.turbin5 {
+    grid-area: turbin5;
+    width: 150px;
+    height: 150px;
+}
+
+.turbin6 {
+    grid-area: turbin6;
+    width: 150px;
+    height: 150px;
+}
+
+.turbin7 {
+    grid-area: turbin7;
+    width: 150px;
+    height: 150px;
+}
+
+.turbin8 {
+    grid-area: turbin8;
+    width: 150px;
+    height: 150px;
+}
+
+.turbin9 {
+    grid-area: turbin9;
+    width: 150px;
+    height: 150px;
+}
+
+.turbin10 {
+    grid-area: turbin10;
+    width: 150px;
+    height: 150px;
+}
+
+.turbin11 {
+    grid-area: turbin11;
+    width: 150px;
+    height: 150px;
+}
+.turbin12 {
+    grid-area: turbin12;
+    width: 150px;
+    height: 150px;
+}
+
+.turbin13 {
+    grid-area: turbin13;
+    width: 150px;
+    height: 150px;
+}
+
+.turbin14 {
+    grid-area: turbin14;
+    width: 150px;
+    height: 150px;
+}
